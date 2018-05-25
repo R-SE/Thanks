@@ -1,31 +1,33 @@
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+const mongoose = require('mongoose');
+const { MLAB } = require('../config.js');
+mongoose.connect(MLAB);
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 
-db.on('error', function() {
-  console.log('mongoose connection error');
+db.on('error', () => console.log('mongoose connection error'));
+db.once('open', () => console.log('mongoose connected successfully'));
+
+const shoutoutSchema = mongoose.Schema({
+  text: { type: String, required: true, unique: true }
 });
 
-db.once('open', function() {
-  console.log('mongoose connected successfully');
-});
+const Shoutout = mongoose.model('Shoutout', shoutoutSchema);
 
-var itemSchema = mongoose.Schema({
-  quantity: Number,
-  description: String
-});
+const addShoutout = shoutout => {
+  let thanks = new Shoutout(shoutout);
+  return thanks.save();
+}
 
-var Item = mongoose.model('Item', itemSchema);
+const getAll = () => {
+  return Shoutout.find({});
+}
 
-var selectAll = function(callback) {
-  Item.find({}, function(err, items) {
-    if(err) {
-      callback(err, null);
-    } else {
-      callback(null, items);
-    }
-  });
-};
+module.exports.addShoutout = addShoutout;
+module.exports.getAll = getAll;
 
-module.exports.selectAll = selectAll;
+
+// let thanks = addShoutout({text: 'LADIES AND GENTLEMEN, WELCOME TO YOUR WEEKLY RETROSPECTIVE!!!!'})
+// thanks.then(res => console.log('added to database')).catch(err => console.log('error adding to db'));
+
+// let shoutouts = getAll();
+// shoutouts.then(res => console.log('fetched all shoutouts: ', res)).catch(err => console.log('error fetching from db'));
