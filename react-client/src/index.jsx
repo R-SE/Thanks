@@ -31,7 +31,10 @@ class App extends React.Component {
 
   sendShout(shoutout) {
     axios.post('/shoutouts', shoutout)
-    .then(res => console.log(res))
+    .then(res => {
+      console.log(res);
+      this.getShoutouts();
+    })
     .catch(err => console.log(err));
   }
 

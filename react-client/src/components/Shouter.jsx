@@ -24,6 +24,7 @@ class Shouter extends React.Component {
 		this.setState({text: e.target.value});
 	}
 	shout() {
+		if (this.state.text === '') return;
 		console.log('sending shout!');
 		let text = this.state.text, name = this.state.name, timestamp = this.state.timestamp, likes = this.state.likes;
 		let message = {text, name, timestamp, likes};
