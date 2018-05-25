@@ -3,7 +3,6 @@ const { MLAB } = require('../config.js');
 mongoose.connect(MLAB);
 
 const db = mongoose.connection;
-
 db.on('error', () => console.log('mongoose connection error'));
 db.once('open', () => console.log('mongoose connected successfully'));
 
