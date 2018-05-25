@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import $ from 'jquery';
 import axios from 'axios';
 import List from './components/List.jsx';
+import Shouter from './components/Shouter.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,6 +10,7 @@ class App extends React.Component {
     this.state = { 
       shoutouts: []
     }
+    this.sendShout = this.sendShout.bind(this);
   }
 
   componentDidMount() {
@@ -28,10 +29,17 @@ class App extends React.Component {
     });
   }
 
+  sendShout(shoutout) {
+    axios.post('/shoutouts', shoutout)
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
+  }
+
   render() {
     return (<div>
       <h1>Shoutouts</h1>
       <List shoutouts={this.state.shoutouts}/>
+      <Shouter sendShout={this.sendShout} />
     </div>)
   }
 }

@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const { getAll, addShoutout } = require('../database-mongo');
 
 const app = express();
-
+app.use(bodyParser());
 app.use(express.static(__dirname + '/../react-client/dist'));
 
 app.get('/shoutouts', (req, res) => {
@@ -13,7 +13,7 @@ app.get('/shoutouts', (req, res) => {
 });
 
 app.post('/shoutouts', (req, res) => {
-  addShoutout(shoutout)
+  addShoutout(req.body)
   .then(data => res.send((`Added your shoutout!`)))
   .catch(err => res.send(err));
 });
