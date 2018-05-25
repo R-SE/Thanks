@@ -7,7 +7,10 @@ db.on('error', () => console.log('mongoose connection error'));
 db.once('open', () => console.log('mongoose connected successfully'));
 
 const shoutoutSchema = mongoose.Schema({
-  text: { type: String, required: true, unique: true }
+  text: { type: String, required: true, unique: true },
+  name: { type: String },
+  timestamp: { type: Date },
+  likes: { type: Number }
 });
 
 const Shoutout = mongoose.model('Shoutout', shoutoutSchema);

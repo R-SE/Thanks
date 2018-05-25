@@ -1,34 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
+// import $ from 'jquery';
+import axios from 'axios';
 import List from './components/List.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      items: []
+      shoutouts: []
     }
   }
 
   componentDidMount() {
-    $.ajax({
-      url: '/items', 
-      success: (data) => {
-        this.setState({
-          items: data
-        })
-      },
-      error: (err) => {
-        console.log('err', err);
-      }
+    this.getShoutouts();
+  }
+
+  getShoutouts() {
+    console.log('getting shoutouts!');
+    axios.get('/shoutouts')
+    .then(res => {
+      console.log(res.data);
+      this.setState({shoutouts: res.data})
+    })
+    .catch(err => {
+      console.log(err);
     });
   }
 
-  render () {
+  render() {
     return (<div>
-      <h1>Item List</h1>
-      <List items={this.state.items}/>
+      <h1>Shoutouts</h1>
+      <List shoutouts={this.state.shoutouts}/>
     </div>)
   }
 }
