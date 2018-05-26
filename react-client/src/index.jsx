@@ -29,9 +29,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      shoutouts: []
+      shoutouts: [],
+      message: 'SAMPLE DATA'
     }
     this.sendShout = this.sendShout.bind(this);
+    this.updateMessage = this.updateMessage.bind(this);
   }
 
   componentDidMount() {
@@ -59,13 +61,17 @@ class App extends React.Component {
     .catch(err => console.log(err));
   }
 
+  updateMessage(message) {
+    this.setState({message});
+  }
+
   render() {
     return (
     // <MuiThemeProvider theme={theme}>
     <div>
       <h1>Shoutouts</h1>
-      <List shoutouts={this.state.shoutouts}/>
-      <Shouter sendShout={this.sendShout} />
+      <List shoutouts={this.state.shoutouts} message={this.state.message} updateMessage={this.updateMessage}/>
+      <Shouter sendShout={this.sendShout}/>
       </div>
       // {/*</MuiThemeProvider>*/}
     )

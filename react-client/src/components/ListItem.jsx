@@ -8,7 +8,7 @@ const ListItem = (props) => {
     // border: '5px solid pink'
   };
   return (
-  <div className="bubble" style={bubbleStyle}>
+  <div className="bubble" style={bubbleStyle} onMouseOver={e => props.updateMessage(e.target.innerHTML)}>
     { props.shoutout.text }
   </div>
 )
