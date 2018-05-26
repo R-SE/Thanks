@@ -12,9 +12,9 @@ Take a moment today to thank someone who has made the world a little brighter.
     - Shoutout is converted to a visual shoutout map that has colored bubbles, each representing a shoutout
     - Hovering over the bubble will display the shoutout on the screen
     - Adding shoutouts displays new bubbles on the page
-- [ ] **Tier 3:**
+- [x] **Tier 3:**
     - Ability to 'like' shoutouts by clicking on the bubble, which updates the bubble's like count
-    - More liked bubbles are bigger
+    - The more likes, the bigger the bubble
 - [ ] **Tier 4:** 
     - Ability to sign shoutouts with Github handle. The bubble will query Github API to display a picture instead of the default solid color
     - Signed bubbles get unique colors as a ring around the picture
