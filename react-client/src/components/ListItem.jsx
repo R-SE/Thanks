@@ -23,7 +23,9 @@ class ListItem extends React.Component {
     this.state = {
       left: defaultLeft,
       right: defaultRight,
-      angle: 0
+      angle: 0,
+      height: 75,
+      width: 75,
     };
     this.float = this.float.bind(this);
     // console.log('setting position in statez')
@@ -36,7 +38,7 @@ class ListItem extends React.Component {
     return true;
   }
   componentDidMount() {
-    this.float();
+    setTimeout(this.float, 50);
     setInterval(this.float, 3000);
   }
   float() {
@@ -58,7 +60,9 @@ class ListItem extends React.Component {
     let bubbleStyle = {
       top: `${this.state.left}px`,
       left: `${this.state.right}px`,
-      transform: `rotate(${this.state.angle}deg)`
+      transform: `rotate(${this.state.angle}deg)`,
+      height: `${this.state.height}px`,
+      width: `${this.state.width}px`,
     };
   return (
   <div className="bubble" style={bubbleStyle} onMouseOver={e => this.props.updateMessage(e.target.innerHTML)}>
