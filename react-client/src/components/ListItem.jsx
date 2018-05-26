@@ -35,18 +35,20 @@ class ListItem extends React.Component {
     return true;
   }
   componentDidMount() {
-    // setInterval(this.float, 1000);
-    // this.float();
+    this.float();
+    setInterval(this.float, 3000);
   }
   float() {
-    console.log('floating bubble');
-    // console.log(ReactDOM.findDOMNode(this).style.left);
-    let newLeft = this.state.left + 1;
-    console.log(this.state.left, newLeft)
-    let newRight = this.state.right + 1;
+    // console.log('floating bubble');
+    let generateNum = (min, max) => {
+      let num = Math.floor(Math.random() * max) + min;
+      return num *= Math.floor(Math.random() * 2) == 1 ? 1 : -1;
+    }
+    let moveLeft = generateNum(1, 10);
+    let moveRight = generateNum(1, 10);
+    let newLeft = this.state.left + moveLeft;
+    let newRight = this.state.right + moveRight;
     this.setState({left: newLeft, right: newRight}); 
-    console.log(this.state);
-
   }
   render() {
     let bubbleStyle = {

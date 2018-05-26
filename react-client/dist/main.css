@@ -19,6 +19,8 @@ body {
 	opacity: 0.7;
 	color: blue;
   cursor: 'pointer';
+	transition: all 3s;
+	transition-timing-function: cubic-bezier(.19,-0.03,.81,.98);
 }
 
 .bubble:hover {
@@ -56,7 +58,8 @@ input {
 }
 
 #message {
-	    color: rgba(19, 232, 177, 0.63);
+	    /*color: rgba(19, 232, 177, 0.63);*/
+	    color: floralwhite;
 			text-shadow: 1px 1px 5px black;
 			position: absolute;
 			top: 40%;
