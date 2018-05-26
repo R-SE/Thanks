@@ -1,8 +1,29 @@
+import axios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
+
+// import Button from '@material-ui/core/Button';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#e5ffff',
+      main: '#b2ebf2',
+      dark: '#81b9bf',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#56c8d8',
+      main: '#0097a7',
+      dark: '#006978',
+      contrastText: '#000',
+    },
+  },
+});
+
 import List from './components/List.jsx';
 import Shouter from './components/Shouter.jsx';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -39,11 +60,11 @@ class App extends React.Component {
   }
 
   render() {
-    return (<div>
+    return (<MuiThemeProvider theme={theme}>
       <h1>Shoutouts</h1>
       <List shoutouts={this.state.shoutouts}/>
       <Shouter sendShout={this.sendShout} />
-    </div>)
+    </MuiThemeProvider>)
   }
 }
 

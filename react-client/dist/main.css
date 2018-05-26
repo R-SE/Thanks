@@ -1,0 +1,15 @@
+* {
+	/*background-color: rgb(48, 128, 189);*/
+	font-family: 'Roboto', sans-serif;
+}
+
+body {
+	background: url(./cool-background-textures-jj_textures.jpg) no-repeat center center fixed hsla(180, 46%, 80%, 0.79);
+}
+
+.bubble {
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	background-color: #b2ebf2;
+}
