@@ -22,10 +22,11 @@ class ListItem extends React.Component {
     let defaultRight = (Math.random() * (document.documentElement.clientWidth - 100))+50;
     this.state = {
       left: defaultLeft,
-      right: defaultRight
+      right: defaultRight,
+      angle: 0
     };
     this.float = this.float.bind(this);
-    console.log('setting position in statez')
+    // console.log('setting position in statez')
   }
   shouldComponentUpdate(nextProps, nextState) {
   //  return !equals(nextProps, this.props);
@@ -40,20 +41,24 @@ class ListItem extends React.Component {
   }
   float() {
     // console.log('floating bubble');
-    let generateNum = (min, max) => {
+    let generateNum = (min, max, neg=true) => {
       let num = Math.floor(Math.random() * max) + min;
+      if (!neg) return num;
       return num *= Math.floor(Math.random() * 2) == 1 ? 1 : -1;
     }
     let moveLeft = generateNum(1, 10);
     let moveRight = generateNum(1, 10);
+    let rotate = generateNum(1, 30, false);
     let newLeft = this.state.left + moveLeft;
     let newRight = this.state.right + moveRight;
-    this.setState({left: newLeft, right: newRight}); 
+    let newAngle = this.state.angle + rotate;
+    this.setState({left: newLeft, right: newRight, angle: newAngle}); 
   }
   render() {
     let bubbleStyle = {
       top: `${this.state.left}px`,
-      left: `${this.state.right}px`
+      left: `${this.state.right}px`,
+      transform: `rotate(${this.state.angle}deg)`
     };
   return (
   <div className="bubble" style={bubbleStyle} onMouseOver={e => this.props.updateMessage(e.target.innerHTML)}>

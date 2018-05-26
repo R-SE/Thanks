@@ -24,7 +24,8 @@ body {
 }
 
 .bubble:hover {
-	font-size: 1em;
+	/*font-size: 1em;*/
+	cursor: 'pointer';
 }
 
 input {
@@ -48,6 +49,7 @@ input {
 
 ::placeholder {
     color: rgba(19, 232, 177, 0.63);
+		/*color: floralwhite;*/
 		/*margin-top: .5em;*/
 		font-size: 1em;
     /*opacity: 1;  Firefox */
@@ -62,9 +64,10 @@ input {
 	    color: floralwhite;
 			text-shadow: 1px 1px 5px black;
 			position: absolute;
-			top: 40%;
+			top: 30%;
 			text-align: center;
 			width: 100%;
 			z-index: -100;
-			font-size: 3em;
+			font-size: 4em;
+			transition: all 3s;
 }
