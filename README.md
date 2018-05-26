@@ -7,16 +7,20 @@ Take a moment today to thank someone who has made the world a little brighter.
 ## Iterative Project Breakdown
 - [x] **MVP/Tier 1:**
     - Show a list of shoutouts, much like what we write in during Friday Retrospectives
-    - There will be a form on the page to add shoutouts to the database, and the list will update with shoutouts
-- [ ] **Tier 2:** 
+    - You can post shoutouts and they'll populate the database, and render immediately
+- [x] **Tier 2:** 
     - Shoutout is converted to a visual shoutout map that has colored bubbles, each representing a shoutout
     - Hovering over the bubble will display the shoutout on the screen
-    - Adding shoutouts displays new bubbles on the page with an animation
-- [ ] **Tier 3:** 
-    - Ability to sign shoutouts with a picture. The bubble will display a picture instead of the default solid color
+    - Adding shoutouts displays new bubbles on the page
+- [ ] **Tier 3:**
+    - Ability to 'like' shoutouts by clicking on the bubble, which updates the bubble's like count
+    - More liked bubbles are bigger
+- [ ] **Tier 4:** 
+    - Ability to sign shoutouts with Github handle. The bubble will query Github API to display a picture instead of the default solid color
     - Signed bubbles get unique colors as a ring around the picture
     - Each shoutout under the same name will receive the same color bubble
-- [ ] **Tier 4:** 
-    - Shoutouts are sorted by age, with older shoutouts receiving smaller bubbles.
-- [ ] **Tier 5:** 
-    - Physics engine for bubbles; they will now flow around the screen and respond to user mouse movement
+- [ ] **Tier 5:**
+    - Oauth with Firebase to pull signed bubble icons directly from Github instead of having someone type in their handle
+    - Shoutouts are sorted by age, with older shoutouts receiving smaller bubbles
+- [ ] **Tier 6:** 
+    - Physics engine or D3 for bubbles; they will now flow around the screen and respond to user mouse movement

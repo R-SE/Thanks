@@ -5,6 +5,7 @@
 
 body {
 	background: url(./cool-background-textures-jj_textures.jpg) no-repeat center center fixed hsla(180, 46%, 80%, 0.79);
+	/*background: url(./Cool-Background-Images-011.jpg) no-repeat center center fixed hsla(180, 46%, 80%, 0.79);*/
 }
 
 .bubble {
@@ -19,8 +20,8 @@ body {
 	opacity: 0.7;
 	color: blue;
   cursor: 'pointer';
-	transition: all 3s;
-	transition-timing-function: cubic-bezier(.19,-0.03,.81,.98);
+	transition: all 3s cubic-bezier(.19,-0.03,.81,.98);
+	/*transition-timing-function: ;*/
 }
 
 .bubble:hover {
@@ -70,4 +71,5 @@ input {
 			z-index: -100;
 			font-size: 4em;
 			transition: all 3s;
+			cursor: default;
 }
