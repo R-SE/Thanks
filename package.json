@@ -4,6 +4,7 @@
   "description": "Thanks is a project that lets the Hack Reactor family voice appreciation for the kind souls that have helped them along their journeys.",
   "main": "index.js",
   "scripts": {
+    "start": "node server/index.js",
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js"
   },

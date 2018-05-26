@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
-const { MLAB } = require('../config.js');
+let MLAB;
+try {
+  MLAB = require('../config.js').MLAB;
+} catch(err) {
+  MLAB = process.env.MLAB
+}
 mongoose.connect(MLAB);
 
 const db = mongoose.connection;
