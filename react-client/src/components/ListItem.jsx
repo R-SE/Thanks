@@ -31,18 +31,19 @@ class ListItem extends React.Component {
       width: size,
       likes: likes
     };
-    // console.log(this.state);
+    console.log(this.state.likes);
     this.float = this.float.bind(this);
-    this.updateLikes = this.updateLikes.bind(this);
+    // this.updateLikes = this.updateLikes.bind(this);
+    // this.forceUpdate = this.forceUpdate.bind(this);
     // console.log('setting position in statez')
   }
-  shouldComponentUpdate(nextProps, nextState) {
-  //  return !equals(nextProps, this.props);
-  // console.log(this.state.left, nextProps, nextState)
-  // return this.state.left !== nextState.left
-    // return false;
-    return true;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  // //  return !equals(nextProps, this.props);
+  // // console.log(this.state.left, nextProps, nextState)
+  // // return this.state.left !== nextState.left
+  //   // return false;
+  //   return true;
+  // }
   componentDidMount() {
     setTimeout(this.float, 50);
     setInterval(this.float, 3000);
@@ -62,17 +63,24 @@ class ListItem extends React.Component {
     let newAngle = this.state.angle + rotate;
     this.setState({left: newLeft, right: newRight, angle: newAngle}); 
   }
-  updateLikes() {
-    // console.log(this.props.shoutout._id)
-    console.log('liking bubble');
-    let id = this.props.shoutout._id;
-    axios.post('/likeshoutout', {id})
-    .then(res => {
-      console.log(res);
-      // this.getShoutouts();
-    })
-    .catch(err => console.log(err));
-  }
+  // updateLikes() {
+  //   // console.log(this.props.shoutout._id)
+  //   console.log('liking bubble');
+  //   let id = this.props.shoutout._id;
+  //   axios.post('/likeshoutout', {id})
+  //   .then(res => {
+  //     console.log('updated likes successfully');
+  //     console.log('before fetching shoutouts', this.state.likes);
+  //     // let newLikes = this.state.likes + 1;
+  //     // this.setState({likes: newLikes});
+  //     this.props.getShoutouts();
+  //     console.log('after fetching shoutouts', this.state.likes);
+  //     // setTimeout(this.forceUpdate, 1000);
+  //     // this.getShoutouts();
+  //   })
+  //   .then(() => console.log('then the likes are:', this.state.likes))
+  //   .catch(err => console.log(err));
+  // }
   render() {
     let bubbleStyle = {
       top: `${this.state.left}px`,
@@ -82,7 +90,7 @@ class ListItem extends React.Component {
       width: `${this.state.width}px`,
     };
   return (
-  <div className="bubble" style={bubbleStyle} onMouseOver={e => this.props.updateMessage(e.target.innerHTML)} onClick={this.updateLikes}>
+  <div className="bubble" style={bubbleStyle} onMouseOver={e => this.props.updateMessage(e.target.innerHTML)} onClick={() => {this.props.updateLikes(this.props.shoutout._id)}} >
     { this.props.shoutout.text }
   </div>
 )

@@ -35,6 +35,8 @@ class App extends React.Component {
     }
     this.sendShout = this.sendShout.bind(this);
     this.updateMessage = this.updateMessage.bind(this);
+    this.getShoutouts = this.getShoutouts.bind(this);
+    this.updateLikes = this.updateLikes.bind(this);
   }
 
   componentDidMount() {
@@ -66,11 +68,27 @@ class App extends React.Component {
     this.setState({message});
   }
 
+  updateLikes(id) {
+    axios.post('/likeshoutout', {id})
+    .then(res => {
+      console.log('updated likes successfully');
+      // console.log('before fetching shoutouts', this.state.likes);
+      // let newLikes = this.state.likes + 1;
+      // this.setState({likes: newLikes});
+      this.getShoutouts();
+      // console.log('after fetching shoutouts', this.state.likes);
+      // setTimeout(this.forceUpdate, 1000);
+      // this.getShoutouts();
+    })
+    // .then(() => console.log('then the likes are:', this.state.likes))
+    .catch(err => console.log(err));
+  }
+
   render() {
     return (
     // <MuiThemeProvider theme={theme}>
     <div>
-      <List shoutouts={this.state.shoutouts} message={this.state.message} updateMessage={this.updateMessage}/>
+      <List shoutouts={this.state.shoutouts} message={this.state.message} updateMessage={this.updateMessage} getShoutouts={this.getShoutouts} updateLikes={this.updateLikes} />
       <Shouter sendShout={this.sendShout}/>
       <div id="githublogin"></div>
       </div>
