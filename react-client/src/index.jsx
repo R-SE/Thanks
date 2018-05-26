@@ -69,7 +69,6 @@ class App extends React.Component {
     return (
     // <MuiThemeProvider theme={theme}>
     <div>
-      <h1>Shoutouts</h1>
       <List shoutouts={this.state.shoutouts} message={this.state.message} updateMessage={this.updateMessage}/>
       <Shouter sendShout={this.sendShout}/>
       </div>

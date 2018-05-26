@@ -1,6 +1,6 @@
 * {
 	/*background-color: rgb(48, 128, 189);*/
-	font-family: 'Roboto', sans-serif;
+	font-family: 'The Girl Next Door', cursive, sans-serif;
 }
 
 body {
@@ -48,4 +48,15 @@ input {
 
 #inputWrapper {
 	text-align: center;
+}
+
+#message {
+	    color: rgba(19, 232, 177, 0.63);
+			text-shadow: 1px 1px 5px black;
+			position: absolute;
+			top: 40%;
+			text-align: center;
+			width: 100%;
+			z-index: -100;
+			font-size: 3em;
 }
