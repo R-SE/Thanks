@@ -30,7 +30,8 @@ class App extends React.Component {
     super(props);
     this.state = { 
       shoutouts: [],
-      message: 'SAMPLE DATA'
+      message: `LADIES AND GENTLEMEN,                       
+      WELCOME TO YOUR WEEKLY RETROSPECTIVE!!!`
     }
     this.sendShout = this.sendShout.bind(this);
     this.updateMessage = this.updateMessage.bind(this);

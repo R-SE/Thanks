@@ -16,6 +16,9 @@ body {
 	/*background-color: #b2ebf2;*/
 	position: absolute;
 	font-size: 0;
+	opacity: 0.7;
+	color: blue;
+  cursor: 'pointer';
 }
 
 .bubble:hover {
@@ -43,6 +46,8 @@ input {
 
 ::placeholder {
     color: rgba(19, 232, 177, 0.63);
+		/*margin-top: .5em;*/
+		font-size: 1em;
     /*opacity: 1;  Firefox */
 }
 
