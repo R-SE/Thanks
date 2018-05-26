@@ -4,6 +4,8 @@
 *Thanks* is a project that lets the Hack Reactor family voice appreciation for the kind souls that have helped them along their journeys.
 Take a moment today to thank someone who has made the world a little brighter.
 
+Visit the deployed app at [Thanks](https://morning-journey-32577.herokuapp.com/)!
+
 ## Iterative Project Breakdown
 - [x] **MVP/Tier 1:**
     - Show a list of shoutouts, much like what we write in during Friday Retrospectives
