@@ -73,3 +73,14 @@ input {
 			transition: all 3s;
 			cursor: default;
 }
+
+#githublogin {
+	height: 100%;
+	width: 15%;
+	z-index: 100;
+	background: url(./githublogin.png) no-repeat center bottom;
+	background-size: 100%;
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+}
