@@ -27,6 +27,7 @@ class ListItem extends React.Component {
     top: `${(Math.random() * (document.documentElement.clientHeight -100))+50}px`,
     left: `${(Math.random() * (document.documentElement.clientWidth - 100))+50}px`,
     color: 'blue',
+    cursor: 'pointer'
     // border: '5px solid pink'
   };
   return (

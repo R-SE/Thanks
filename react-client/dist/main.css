@@ -11,7 +11,7 @@ body {
 	height: 50px;
 	width: 50px;
 	border-radius: 50%;
-	background: url(./3de043fb619f46214edf854f34d2f45a.png) no-repeat;
+	background: url(./bubble.png) no-repeat;
 	background-size: 100%;
 	/*background-color: #b2ebf2;*/
 	position: absolute;
@@ -20,4 +20,32 @@ body {
 
 .bubble:hover {
 	font-size: 1em;
+}
+
+input {
+	padding: 1%;
+	width: 66%;
+	border: none;
+	background-color: hsla(180, 46%, 80%, 0.3);
+	font-size: 2em;
+	text-align: center;
+	color: rgba(19, 232, 177, 0.63);
+	text-shadow: 1px 1px 3px black;
+	margin: 0 auto;
+	display: inline-block;
+	letter-spacing: 3px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	/*position: absolute;
+	bottom: 5%;*/
+}
+
+::placeholder {
+    color: rgba(19, 232, 177, 0.63);
+    /*opacity: 1;  Firefox */
+}
+
+#inputWrapper {
+	text-align: center;
 }

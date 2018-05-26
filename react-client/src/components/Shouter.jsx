@@ -38,10 +38,12 @@ class Shouter extends React.Component {
 		});
 	}
   render() {
+		// let inputStyle = {
+
+		// };
     return (
-      <div>
-          <h2>Send Thanks</h2>
-					<input className="message" value={this.state.text} onChange={this.changeText} onKeyUp={this.checkEnter}/>
+      <div id="inputWrapper">
+					<input className="message" value={this.state.text} onChange={this.changeText} onKeyUp={this.checkEnter} placeholder="Send Thanks"/>
       </div>
     )
 	}
