@@ -11,7 +11,9 @@ body {
 	height: 50px;
 	width: 50px;
 	border-radius: 50%;
-	background-color: #b2ebf2;
+	background: url(./3de043fb619f46214edf854f34d2f45a.png) no-repeat;
+	background-size: 100%;
+	/*background-color: #b2ebf2;*/
 	position: absolute;
 	font-size: 0;
 }

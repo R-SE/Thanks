@@ -1,3 +1,3 @@
-exports = {
-    MLAB = ''
+module.exports = {
+    MLAB: ''
 }

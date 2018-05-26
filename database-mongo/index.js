@@ -3,7 +3,7 @@ const { MLAB } = require('../config.js');
 mongoose.connect(MLAB);
 
 const db = mongoose.connection;
-db.on('error', () => console.log('mongoose connection error'));
+db.on('error', (err) => console.log('mongoose connection error', err));
 db.once('open', () => console.log('mongoose connected successfully'));
 
 const shoutoutSchema = mongoose.Schema({
