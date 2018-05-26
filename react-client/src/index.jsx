@@ -72,15 +72,8 @@ class App extends React.Component {
     axios.post('/likeshoutout', {id})
     .then(res => {
       console.log('updated likes successfully');
-      // console.log('before fetching shoutouts', this.state.likes);
-      // let newLikes = this.state.likes + 1;
-      // this.setState({likes: newLikes});
       this.getShoutouts();
-      // console.log('after fetching shoutouts', this.state.likes);
-      // setTimeout(this.forceUpdate, 1000);
-      // this.getShoutouts();
     })
-    // .then(() => console.log('then the likes are:', this.state.likes))
     .catch(err => console.log(err));
   }
 

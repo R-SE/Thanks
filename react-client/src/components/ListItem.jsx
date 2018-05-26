@@ -31,7 +31,7 @@ class ListItem extends React.Component {
       width: size,
       likes: likes
     };
-    console.log(this.state.likes);
+    console.log('rendering listitem with likes: ', this.state.likes);
     this.float = this.float.bind(this);
     // this.updateLikes = this.updateLikes.bind(this);
     // this.forceUpdate = this.forceUpdate.bind(this);
@@ -48,6 +48,9 @@ class ListItem extends React.Component {
     setTimeout(this.float, 50);
     setInterval(this.float, 3000);
   }
+  // componentWillReceiveProps(nextProps) {
+  //   this.setState({ data: nextProps.data });  
+  // }
   float() {
     // console.log('floating bubble');
     let generateNum = (min, max, neg=true) => {
