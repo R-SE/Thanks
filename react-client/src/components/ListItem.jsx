@@ -31,7 +31,7 @@ class ListItem extends React.Component {
       width: size,
       likes: likes
     };
-    console.log('rendering listitem with likes: ', this.state.likes);
+    // console.log('rendering listitem with likes: ', this.state.likes);
     this.float = this.float.bind(this);
     // this.updateLikes = this.updateLikes.bind(this);
     // this.forceUpdate = this.forceUpdate.bind(this);

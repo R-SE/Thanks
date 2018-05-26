@@ -6,6 +6,8 @@ const app = express();
 app.use(bodyParser());
 app.use(express.static(__dirname + '/../react-client/dist'));
 
+app.get('/', (req, res) => res.redirect('/shoutouts'));
+
 app.get('/shoutouts', (req, res) => {
   getAll()
   .then(thanks => res.send((thanks)))
