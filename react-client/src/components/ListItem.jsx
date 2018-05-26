@@ -20,13 +20,17 @@ class ListItem extends React.Component {
     super(props);
     let defaultLeft = (Math.random() * (document.documentElement.clientHeight -100))+50;
     let defaultRight = (Math.random() * (document.documentElement.clientWidth - 100))+50;
+    let likes = this.props.shoutout.likes;
+    let size = likes * 5 + 50
     this.state = {
       left: defaultLeft,
       right: defaultRight,
       angle: 0,
-      height: 75,
-      width: 75,
+      height: size,
+      width: size,
+      likes: likes
     };
+    console.log(this.state);
     this.float = this.float.bind(this);
     // console.log('setting position in statez')
   }
