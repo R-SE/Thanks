@@ -26,6 +26,7 @@ app.post('/likeshoutout', (req, res) => {
   .catch(err => res.send(err));
 })
 
-app.listen(3000, function() {
+let port = process.env.PORT || 3000;
+app.listen(port, function() {
   console.log('listening on port 3000!');
 });
