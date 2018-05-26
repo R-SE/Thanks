@@ -12,7 +12,7 @@ body {
 	/*height: 50px;
 	width: 50px;*/
 	border-radius: 50%;
-	background: url(./bubble.png) no-repeat;
+	background: url(./bubble_small.png) no-repeat;
 	background-size: 100%;
 	/*background-color: #b2ebf2;*/
 	position: absolute;
