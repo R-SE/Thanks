@@ -24,8 +24,11 @@ const getAll = () => {
   return Shoutout.find({});
 }
 
+const like = _id => Shoutout.findOneAndUpdate({_id}, {$inc : {likes : 1}}, {new: true}).exec();
+
 module.exports.addShoutout = addShoutout;
 module.exports.getAll = getAll;
+module.exports.like = like;
 
 
 // let thanks = addShoutout({text: 'LADIES AND GENTLEMEN, WELCOME TO YOUR WEEKLY RETROSPECTIVE!!!!'})
@@ -33,3 +36,5 @@ module.exports.getAll = getAll;
 
 // let shoutouts = getAll();
 // shoutouts.then(res => console.log('fetched all shoutouts: ', res)).catch(err => console.log('error fetching from db'));
+
+// like('5b0977f8bf946a278f3ac621').then(data => console.log('liked, ', data)).catch(err => console.log(err));

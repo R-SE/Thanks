@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -18,10 +19,10 @@ import ReactDOM from 'react-dom';
 class ListItem extends React.Component {
   constructor(props) {
     super(props);
-    let defaultLeft = (Math.random() * (document.documentElement.clientHeight -100))+50;
-    let defaultRight = (Math.random() * (document.documentElement.clientWidth - 100))+50;
+    let defaultLeft = (Math.random() * (document.documentElement.clientHeight -100)) + 50;
+    let defaultRight = (Math.random() * (document.documentElement.clientWidth - 100)) + 50;
     let likes = this.props.shoutout.likes;
-    let size = likes * 5 + 50
+    let size = likes * 5 + 50;
     this.state = {
       left: defaultLeft,
       right: defaultRight,
@@ -30,8 +31,9 @@ class ListItem extends React.Component {
       width: size,
       likes: likes
     };
-    console.log(this.state);
+    // console.log(this.state);
     this.float = this.float.bind(this);
+    this.updateLikes = this.updateLikes.bind(this);
     // console.log('setting position in statez')
   }
   shouldComponentUpdate(nextProps, nextState) {
@@ -60,6 +62,17 @@ class ListItem extends React.Component {
     let newAngle = this.state.angle + rotate;
     this.setState({left: newLeft, right: newRight, angle: newAngle}); 
   }
+  updateLikes() {
+    // console.log(this.props.shoutout._id)
+    console.log('liking bubble');
+    let id = this.props.shoutout._id;
+    axios.post('/likeshoutout', {id})
+    .then(res => {
+      console.log(res);
+      // this.getShoutouts();
+    })
+    .catch(err => console.log(err));
+  }
   render() {
     let bubbleStyle = {
       top: `${this.state.left}px`,
@@ -69,7 +82,7 @@ class ListItem extends React.Component {
       width: `${this.state.width}px`,
     };
   return (
-  <div className="bubble" style={bubbleStyle} onMouseOver={e => this.props.updateMessage(e.target.innerHTML)}>
+  <div className="bubble" style={bubbleStyle} onMouseOver={e => this.props.updateMessage(e.target.innerHTML)} onClick={this.updateLikes}>
     { this.props.shoutout.text }
   </div>
 )
